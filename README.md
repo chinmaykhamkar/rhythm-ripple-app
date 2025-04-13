@@ -1,7 +1,7 @@
 # Linear Ripple App
 ## Project info
 
-**URL**: https://lovable.dev/projects/ac7f0ebc-afd0-4d0a-9096-8b1a7be74c0d
+**URL**: 
 
 Follow these steps:
 
@@ -19,6 +19,8 @@ npm i
 npm run dev
 ```
 
-****
+**Screenshots**
+![ss1](https://github.com/user-attachments/assets/7c655c15-b8d0-4974-8dad-479a37678f36)
 
+![ss2](https://github.com/user-attachments/assets/5a2d9efb-4225-49ca-9a15-6ea6fea57c02)
 
