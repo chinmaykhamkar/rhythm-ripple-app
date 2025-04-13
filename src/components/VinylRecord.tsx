@@ -21,7 +21,7 @@ const VinylRecord: React.FC<VinylRecordProps> = ({ isPlaying, onTrackChange, tit
       
       return () => clearTimeout(timer);
     }
-  }, [onTrackChange]);
+  }, [onTrackChange, title]); // Add title dependency to trigger animation on all track changes
 
   return (
     <div className="relative w-64 h-64 flex-shrink-0">

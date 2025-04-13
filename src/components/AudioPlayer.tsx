@@ -1,4 +1,3 @@
-
 import React, { useRef, useState, useEffect } from 'react';
 import { Playlist, Track } from '../data/musicData';
 import TrackList from './TrackList';
@@ -75,8 +74,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
     if (!audio) return;
     
     // Trigger record change animation
-    setTrackChangeAnimation(true);
-    setTimeout(() => setTrackChangeAnimation(false), 1000);
+    setTrackChangeAnimation(prev => !prev); // Toggle to ensure new value on each track change
     
     audio.src = currentTrack.url;
     audio.load();
