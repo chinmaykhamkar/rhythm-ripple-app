@@ -1,8 +1,10 @@
+
 import React, { useRef, useState, useEffect } from 'react';
 import { Playlist, Track } from '../data/musicData';
 import TrackList from './TrackList';
 import MusicVisualizer from './MusicVisualizer';
 import { formatTime } from './formatTime';
+import VinylRecord from './VinylRecord';
 import { 
   Play, Pause, SkipBack, SkipForward, 
   Volume2, VolumeX, Repeat, Shuffle, Music
@@ -30,6 +32,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
   const [isRepeat, setIsRepeat] = useState(false);
   const [isShuffle, setIsShuffle] = useState(false);
   const [isPlaylistMenuOpen, setIsPlaylistMenuOpen] = useState(false);
+  const [trackChangeAnimation, setTrackChangeAnimation] = useState(false);
   
   const currentTrack: Track = currentPlaylist.tracks[currentTrackIndex];
 
@@ -70,6 +73,10 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
+    
+    // Trigger record change animation
+    setTrackChangeAnimation(true);
+    setTimeout(() => setTrackChangeAnimation(false), 1000);
     
     audio.src = currentTrack.url;
     audio.load();
@@ -201,12 +208,11 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
       
       {/* Player Header with Cover Art & Info */}
       <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-6 animate-float-up">
-        <div className="relative w-64 h-64 rounded-xl overflow-hidden glass-panel flex-shrink-0 animate-spin-slow">
-          <div className="absolute inset-0 bg-gradient-radial from-primary/10 to-black/80"></div>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <Music size={84} className="text-primary animate-pulse-glow" />
-          </div>
-        </div>
+        <VinylRecord 
+          isPlaying={isPlaying}
+          onTrackChange={trackChangeAnimation}
+          title={currentTrack.name}
+        />
         
         <div className="flex-grow">
           <div className="flex justify-between items-center">

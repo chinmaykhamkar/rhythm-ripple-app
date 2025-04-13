@@ -116,6 +116,12 @@ export default {
 				'spin-slow': {
 					'0%': { transform: 'rotate(0deg)' },
 					'100%': { transform: 'rotate(360deg)' }
+				},
+				'record-change': {
+					'0%': { transform: 'rotateY(0deg)', opacity: '1' },
+					'50%': { transform: 'rotateY(90deg)', opacity: '0' },
+					'51%': { transform: 'rotateY(-90deg)', opacity: '0' },
+					'100%': { transform: 'rotateY(0deg)', opacity: '1' }
 				}
 			},
 			animation: {
@@ -127,7 +133,8 @@ export default {
 				'fade-in': 'fade-in 0.5s ease-out',
 				'scale-in': 'scale-in 0.3s ease-out',
 				'wave': 'wave 1.2s ease-in-out infinite',
-				'spin-slow': 'spin-slow 12s linear infinite'
+				'spin-slow': 'spin-slow 12s linear infinite',
+				'record-change': 'record-change 1s ease-in-out',
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
