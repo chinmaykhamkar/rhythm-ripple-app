@@ -1,7 +1,7 @@
 # Linear Ripple App
 ## Project info
 
-**URL**: 
+**URL**: https://rhythm-ripple-app.vercel.app/
 
 Follow these steps:
 
